@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Profile Update</title>
+<script>
+function validateForm() {
+    var fullName = document.getElementById("fullName").value;
+    var dob = document.getElementById("dob").value;
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+    var country = document.getElementById("country").value;
+    
+    var passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    
+    if (fullName.trim() === "") {
+        alert("Please enter your full name.");
+        return false;
+    }
+    
+    if (dob.trim() === "") {
+        alert("Please enter your date of birth.");
+        return false;
+    }
+    
+    if (!emailPattern.test(email)) {
+        alert("Please enter a valid email address.");
+        return false;
+    }
+    
+    if (!passwordPattern.test(password)) {
+        alert("Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, and one special character.");
+        return false;
+    }
+    
+    if (country === "") {
+        alert("Please select a country.");
+        return false;
+    }
+    
+    return true;
+}
+</script>
+</head>
+<body>
+
+<h2>User Profile Update</h2>
+<form onsubmit="return validateForm()">
+  <label for="fullName">Full Name:</label><br>
+  <input type="text" id="fullName" name="fullName" required><br><br>
+  
+  <label for="dob">Date of Birth:</label><br>
+  <input type="date" id="dob" name="dob" required><br><br>
+  
+  <label for="email">Email:</label><br>
+  <input type="email" id="email" name="email" required><br><br>
+  
+  <label for="password">Password:</label><br>
+  <input type="password" id="password" name="password" required><br><br>
+  
+  <label for="country">Country:</label><br>
+  <select id="country" name="country" required>
+    <option value="">Select</option>
+    <option value="USA">USA</option>
+    <option value="UK">UK</option>
+    <option value="Canada">Canada</option>
+  </select><br><br>
+  
+  <input type="submit" value="Update Profile">
+</form>
+
+</body>
+</html>

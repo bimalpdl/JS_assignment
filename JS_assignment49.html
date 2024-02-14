@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product Registration</title>
+<style>
+.error {
+    color: red;
+}
+</style>
+</head>
+<body>
+
+<h2>Product Registration</h2>
+
+<form id="productForm" onsubmit="return validateForm()">
+  <label for="productName">Product Name:</label><br>
+  <input type="text" id="productName" name="productName" required><br>
+  <span id="productNameError" class="error"></span><br>
+  
+  <label for="description">Description:</label><br>
+  <textarea id="description" name="description" required></textarea><br><br>
+  
+  <label for="price">Price:</label><br>
+  <input type="number" id="price" name="price" min="0" step="0.01" required><br>
+  <span id="priceError" class="error"></span><br>
+  
+  <label for="quantity">Quantity:</label><br>
+  <input type="number" id="quantity" name="quantity" min="1" step="1" required><br>
+  <span id="quantityError" class="error"></span><br>
+  
+  <input type="submit" value="Register Product">
+</form>
+
+<script>
+function validateForm() {
+    var productName = document.getElementById("productName").value;
+    var price = parseFloat(document.getElementById("price").value);
+    var quantity = parseInt(document.getElementById("quantity").value);
+
+    document.getElementById("productNameError").textContent = "";
+    document.getElementById("priceError").textContent = "";
+    document.getElementById("quantityError").textContent = "";
+
+    if (productName.trim() === "") {
+        document.getElementById("productNameError").textContent = "Product name is required.";
+        return false;
+    }
+
+    if (isNaN(price) || price <= 0) {
+        document.getElementById("priceError").textContent = "Price must be a numeric value greater than zero.";
+        return false;
+    }
+
+    if (!Number.isInteger(quantity) || quantity <= 0) {
+        document.getElementById("quantityError").textContent = "Quantity must be a positive integer value.";
+        return false;
+    }
+
+    return true;
+}
+</script>
+
+</body>
+</html>

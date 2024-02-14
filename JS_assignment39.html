@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Positioning Examples</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid black;
+  }
+  
+  .relative {
+    position: relative;
+    background-color: lightblue;
+    padding: 20px;
+  }
+  
+  .float {
+    float: left;
+    width: 50%;
+    background-color: lightgreen;
+    padding: 20px;
+  }
+  
+  .absolute {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: lightcoral;
+    padding: 20px;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Positioning Examples</h2>
+  <div class="relative">
+    <h3>Relative Positioning</h3>
+    <p>In relative positioning, an element is positioned relative to its normal position in the document flow. It still occupies space in the document flow, but its position can be adjusted using the top, right, bottom, and left properties.</p>
+  </div>
+  <div class="float">
+    <h3>Float Positioning</h3>
+    <p>Floating an element removes it from the normal document flow and allows it to be positioned to the left or right of its containing element. Other elements flow around it, similar to text wrapping around an image.</p>
+  </div>
+  <div class="absolute">
+    <h3>Absolute Positioning</h3>
+    <p>In absolute positioning, an element is positioned relative to its nearest positioned ancestor. If no positioned ancestor is found, it is positioned relative to the initial containing block (usually the viewport). The element is taken out of the normal document flow, so it does not affect the positioning of other elements.</p>
+  </div>
+</div>
+
+</body>
+</html>

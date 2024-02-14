@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get Type of Argument</title>
+</head>
+<body>
+
+<h2>Get Type of Argument</h2>
+
+<form id="typeCheckForm">
+  <label for="inputArgument">Enter an argument:</label>
+  <input type="text" id="inputArgument" name="inputArgument" required>
+  <button type="submit">Check</button>
+</form>
+
+<div id="result"></div>
+
+<script>
+  function getType(arg) {
+    return typeof arg;
+  }
+
+  document.getElementById("typeCheckForm").addEventListener("submit", function(event) {
+    event.preventDefault(); 
+    let inputArgument = document.getElementById("inputArgument").value;
+
+    let type = getType(inputArgument);
+
+    document.getElementById("result").innerText = "Type of argument: " + type;
+  });
+</script>
+
+</body>
+</html>

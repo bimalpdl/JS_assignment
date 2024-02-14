@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Create a Cookie</title>
+</head>
+<body>
+
+<h2>Create a Cookie</h2>
+
+<script>
+  function createCookie(name, value, days) {
+    var expires = "";
+    if (days) {
+      var date = new Date();
+      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+      expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + value + expires + "; path=/";
+  }
+
+  createCookie("username", "Bimal", 7);
+
+  var usernameCookie = document.cookie.split(';').find(cookie => cookie.trim().startsWith('username='));
+  if (usernameCookie) {
+    console.log("Cookie 'username' was created successfully.");
+  } else {
+    console.error("Failed to create cookie 'username'.");
+  }
+</script>
+
+</body>
+</html>

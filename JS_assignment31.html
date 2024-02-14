@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Delete a Cookie</title>
+</head>
+<body>
+
+<h2>Delete a Cookie</h2>
+
+<script>
+  function deleteCookie(name) {
+    document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+  }
+
+  deleteCookie("username");
+
+  var usernameCookie = getCookie("username");
+  if (!usernameCookie) {
+    console.log("Cookie 'username' was deleted successfully.");
+  } else {
+    console.error("Failed to delete cookie 'username'.");
+  }
+
+  function getCookie(name) {
+    var nameEQ = name + "=";
+    var cookies = document.cookie.split(';');
+    for (var i = 0; i < cookies.length; i++) {
+      var cookie = cookies[i];
+      while (cookie.charAt(0) === ' ') {
+        cookie = cookie.substring(1, cookie.length);
+      }
+      if (cookie.indexOf(nameEQ) === 0) {
+        return cookie.substring(nameEQ.length, cookie.length);
+      }
+    }
+    return null;
+  }
+</script>
+
+</body>
+</html>

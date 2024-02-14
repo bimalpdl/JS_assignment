@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Form Validation</title>
+</head>
+<body>
+
+<h2>User Registration Form</h2>
+
+<form id="userRegistrationForm" onsubmit="return validateForm()">
+  <label for="username">Username (Length >= 5):</label><br>
+  <input type="text" id="username" name="username" required minlength="5"><br><br>
+
+  <label for="password">Password (Starts with a digit, Alphanumeric):</label><br>
+  <input type="password" id="password" name="password" required pattern="^(?=\d)(?=.*[a-zA-Z])[0-9a-zA-Z]+$"><br><br>
+
+  <label for="email">Email (Valid Email Address):</label><br>
+  <input type="email" id="email" name="email" required><br><br>
+
+  <label for="country">Country:</label><br>
+  <select id="country" name="country" required>
+    <option value="">Select Country</option>
+    <option value="USA">USA</option>
+    <option value="Canada">Canada</option>
+    <option value="UK">UK</option>
+    <option value="Australia">Australia</option>
+    <!-- Add more countries as needed -->
+  </select><br><br>
+
+  <button type="submit">Submit</button>
+</form>
+
+<script>
+  function validateForm() {
+    // Retrieve form fields
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+    var email = document.getElementById("email").value;
+    var country = document.getElementById("country").value;
+
+    // Validate username length
+    if (username.length < 5) {
+      alert("Username must be at least 5 characters long.");
+      return false;
+    }
+
+    if (!/^\d/.test(password)) {
+      alert("Password must start with a digit.");
+      return false;
+    }
+    if (!/^[0-9a-zA-Z]+$/.test(password)) {
+      alert("Password must be alphanumeric.");
+      return false;
+    }
+
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      alert("Please enter a valid email address.");
+      return false;
+    }
+
+    if (country === "") {
+      alert("Please select a country.");
+      return false;
+    }
+
+    alert("Form submitted successfully!");
+    return true;
+  }
+</script>
+
+</body>
+</html>

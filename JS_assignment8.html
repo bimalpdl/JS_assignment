@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Second Lowest and Second Greatest</title>
+</head>
+<body>
+
+<h2>Second Lowest and Second Greatest</h2>
+
+<form id="numberArrayForm">
+  <label for="numberArrayInput">Enter numbers separated by commas:</label>
+  <input type="text" id="numberArrayInput" name="numberArrayInput" required>
+  <button type="submit">Find</button>
+</form>
+
+<div id="result"></div>
+
+<script>
+  function findSecondLowestAndSecondGreatest(arr) {
+    arr.sort((a, b) => a - b);
+    
+    let uniqueArr = [...new Set(arr)];
+
+    if (uniqueArr.length < 2) {
+      return "The array should have at least two unique elements.";
+    }
+
+    let secondLowest = uniqueArr[1];
+
+    let secondGreatest = uniqueArr[uniqueArr.length - 2];
+
+    return {
+      secondLowest: secondLowest,
+      secondGreatest: secondGreatest
+    };
+  }
+
+  document.getElementById("numberArrayForm").addEventListener("submit", function(event) {
+    event.preventDefault(); 
+    let numberArrayInput = document.getElementById("numberArrayInput").value;
+
+    let numbersArray = numberArrayInput.split(',').map(Number);
+
+    let result = findSecondLowestAndSecondGreatest(numbersArray);
+
+    document.getElementById("result").innerText = "Second lowest: " + result.secondLowest + ", Second greatest: " + result.secondGreatest;
+  });
+</script>
+
+</body>
+</html>

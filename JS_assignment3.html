@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Convert First Letter to Uppercase</title>
+</head>
+<body>
+
+<h2>Convert First Letter to Uppercase</h2>
+
+<form id="uppercaseForm">
+  <label for="inputString">Enter a string:</label>
+  <input type="text" id="inputString" name="inputString" required>
+  <button type="submit">Convert</button>
+</form>
+
+<div id="result"></div>
+
+<script>
+  function capitalizeFirstLetter(str) {
+    // Split the string into words
+    let words = str.split(' ');
+    
+    // Capitalize the first letter of each word
+    for (let i = 0; i < words.length; i++) {
+      words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
+    }
+    
+    // Join the words back into a string
+    return words.join(' ');
+  }
+
+  // Function to handle form submission
+  document.getElementById("uppercaseForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    // Get the input value
+    let inputString = document.getElementById("inputString").value;
+
+    // Convert the first letter of each word to uppercase
+    let resultString = capitalizeFirstLetter(inputString);
+
+    // Display the result
+    document.getElementById("result").innerText = "Converted string: " + resultString;
+  });
+</script>
+
+</body>
+</html>

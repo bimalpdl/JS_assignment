@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Check if Input is an Array</title>
+</head>
+<body>
+
+<h2>Check if Input is an Array</h2>
+
+<form id="isArrayForm">
+  <label for="inputValue">Enter a value:</label>
+  <input type="text" id="inputValue" name="inputValue" required>
+  <button type="submit">Check</button>
+</form>
+
+<div id="result"></div>
+
+<script>
+  function isArray(input) {
+    return Array.isArray(input);
+  }
+
+  document.getElementById("isArrayForm").addEventListener("submit", function(event) {
+    event.preventDefault(); 
+
+    let inputValue = document.getElementById("inputValue").value;
+
+    let result = isArray(eval(inputValue));
+
+    document.getElementById("result").innerText = "Is it an array? " + result;
+  });
+</script>
+
+</body>
+</html>

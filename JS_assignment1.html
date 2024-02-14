@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reverse Number</title>
+</head>
+<body>
+
+<h2>Reverse a Number</h2>
+
+<form id="reverseForm">
+  <label for="numberInput">Enter a number:</label>
+  <input type="number" id="numberInput" name="numberInput" required>
+  <button type="submit">Reverse</button>
+</form>
+
+<div id="result"></div>
+
+<script>
+  function reverseNumber(num) {
+  
+    let reversedNumString = num.toString().split('').reverse().join('');
+    
+    let reversedNum = parseInt(reversedNumString);
+    
+    return reversedNum;
+  }
+
+  document.getElementById("reverseForm").addEventListener("submit", function(event) {
+    event.preventDefault(); 
+
+    let inputNumber = parseInt(document.getElementById("numberInput").value);
+
+   
+    let reversedNumber = reverseNumber(inputNumber);
+
+    document.getElementById("result").innerText = "Reversed number: " + reversedNumber;
+  });
+</script>
+
+</body>
+</html>

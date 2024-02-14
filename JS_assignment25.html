@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Event Handling</title>
+</head>
+<body>
+
+<h2>Event Handling</h2>
+
+<button id="clickButton">Click Me</button><br><br>
+
+<div id="mouseOverDiv" style="width: 200px; height: 100px; background-color: lightblue;">
+  Hover over me!
+</div><br><br>
+
+<input type="text" id="focusInput" placeholder="Click to focus"><br><br>
+
+<script>
+  document.getElementById("clickButton").addEventListener("click", function() {
+    alert("Button clicked!");
+  });
+
+  document.getElementById("mouseOverDiv").addEventListener("mouseover", function() {
+    this.style.backgroundColor = "lightgreen";
+  });
+
+  document.getElementById("focusInput").addEventListener("focus", function() {
+    this.style.border = "2px solid red";
+  });
+</script>
+
+</body>
+</html>

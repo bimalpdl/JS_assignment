@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Window Object Methods</title>
+</head>
+<body>
+
+<h2>Window Object Methods</h2>
+
+<button onclick="showAlert()">Show Alert</button>
+<button onclick="showPrompt()">Show Prompt</button>
+<button onclick="showConfirm()">Show Confirm</button>
+<button onclick="openWindow()">Open Window</button>
+<button onclick="closeWindow()">Close Window</button>
+
+<script>
+  // Alert method
+  function showAlert() {
+    window.alert("This is an alert message!");
+  }
+
+  // Prompt method
+  function showPrompt() {
+    var userInput = window.prompt("Please enter your name:");
+    if (userInput !== null) {
+      window.alert("Hello, " + userInput + "!");
+    }
+  }
+
+  function showConfirm() {
+    var result = window.confirm("Are you sure you want to proceed?");
+    if (result) {
+      window.alert("You clicked OK!");
+    } else {
+      window.alert("You clicked Cancel!");
+    }
+  }
+
+  var myWindow;
+  function openWindow() {
+    myWindow = window.open("", "myWindow", "width=300,height=200");
+    myWindow.document.write("<h1>My New Window</h1>");
+    myWindow.document.write("<p>This is my new window.</p>");
+  }
+
+  function closeWindow() {
+    if (myWindow) {
+      myWindow.close();
+    }
+  }
+</script>
+
+</body>
+</html>

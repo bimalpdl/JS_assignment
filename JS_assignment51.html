@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Event Delegation Example</title>
+<style>
+    /* Just for styling */
+    .list-item {
+        cursor: pointer;
+        padding: 5px;
+        margin: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+</style>
+</head>
+<body>
+
+<h2>Dynamic List</h2>
+<ul id="parentList">
+</ul>
+
+<script>
+var parentList = document.getElementById("parentList");
+
+parentList.addEventListener("click", function(event) {
+    if (event.target.classList.contains("list-item")) {
+        console.log("Clicked: " + event.target.textContent);
+    }
+});
+
+function addListItem(text) {
+    var li = document.createElement("li");
+    li.textContent = text;
+    li.classList.add("list-item");
+    parentList.appendChild(li);
+}
+
+addListItem("Item 1");
+addListItem("Item 2");
+addListItem("Item 3");
+</script>
+
+</body>
+</html>

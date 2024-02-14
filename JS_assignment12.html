@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Check if Input is a Date Object</title>
+</head>
+<body>
+
+<h2>Check if Input is a Date Object</h2>
+
+<form id="isDateForm">
+  <label for="inputValue">Enter a value:</label>
+  <input type="text" id="inputValue" name="inputValue" required>
+  <button type="submit">Check</button>
+</form>
+
+<div id="result"></div>
+
+<script>
+  function isDate(input) {
+    return input instanceof Date;
+  }
+
+  document.getElementById("isDateForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    let inputValue = document.getElementById("inputValue").value;
+
+    let result = isDate(eval(inputValue));
+
+    document.getElementById("result").innerText = "Is it a Date object? " + result;
+  });
+</script>
+
+</body>
+</html>

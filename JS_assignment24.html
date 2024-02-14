@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Form Validation</title>
+</head>
+<body>
+
+<h2>User Registration Form</h2>
+
+<form id="userRegistrationForm" onsubmit="return validateForm()">
+  <label for="username">Username (Length >= 4):</label><br>
+  <input type="text" id="username" name="username" required minlength="4"><br><br>
+
+  <label for="password">Password (Starts with a digit, Ends with $):</label><br>
+  <input type="password" id="password" name="password" required pattern="^\d.*\$$"><br><br>
+
+  <label for="education">Education:</label>
+  <input type="checkbox" id="education" name="education" required><br><br>
+
+  <button type="submit">Submit</button>
+</form>
+
+<script>
+  function validateForm() {
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+    var education = document.getElementById("education").checked;
+
+    if (username.length < 4) {
+      alert("Username must be at least 4 characters long.");
+      return false;
+    }
+
+    if (!/^\d.*\$$/.test(password)) {
+      alert("Password must start with a digit and end with $.");
+      return false;
+    }
+
+    if (!education) {
+      alert("Please select the education checkbox.");
+      return false;
+    }
+
+    alert("Form submitted successfully!");
+    return true;
+  }
+</script>
+
+</body>
+</html>

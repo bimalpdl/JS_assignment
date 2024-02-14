@@ -1,0 +1,23 @@
+#container {
+    position: relative;
+    margin-top: 50px; /* Just for better visibility */
+  }
+  
+  #fixedDiv {
+    position: fixed;
+    border: 2px solid black;
+    width: 200px;
+  }
+  
+  #p1 {
+    position: relative;
+    font-family: Arial, sans-serif;
+    color: red;
+  }
+  
+  #p2 {
+    position: absolute;
+    top: 0;
+    left: 200px;
+  }
+  

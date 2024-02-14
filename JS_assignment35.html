@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>jQuery Selectors</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<h2>jQuery Selectors</h2>
+
+<div id="content">
+  <p>This is a paragraph inside a div with the id "content".</p>
+  <p class="highlight">This is another paragraph with the class "highlight".</p>
+  <ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li class="highlight">Item 3</li>
+    <li>Item 4</li>
+  </ul>
+</div>
+
+<script>
+  $("p").css("color", "blue");
+
+  $("#content").css("border", "1px solid black");
+
+  $(".highlight").css("font-weight", "bold");
+
+  $("li:first").css("text-decoration", "underline");
+
+  $("li:last").css("font-style", "italic");
+
+  $("li:odd").css("background-color", "lightgrey");
+
+  $("li:even").css("background-color", "lightblue");
+</script>
+
+</body>
+</html>

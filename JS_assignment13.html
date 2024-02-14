@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Check if Input is a String</title>
+</head>
+<body>
+
+<h2>Check if Input is a String</h2>
+
+<form id="isStringForm">
+  <label for="inputValue">Enter a value:</label>
+  <input type="text" id="inputValue" name="inputValue" required>
+  <button type="submit">Check</button>
+</form>
+
+<div id="result"></div>
+
+<script>
+  function isString(input) {
+    return typeof input === 'string';
+  }
+
+  document.getElementById("isStringForm").addEventListener("submit", function(event) {
+    event.preventDefault(); 
+    let inputValue = document.getElementById("inputValue").value;
+
+    let result = isString(inputValue);
+
+    document.getElementById("result").innerText = "Is it a string? " + result;
+  });
+</script>
+
+</body>
+</html>
